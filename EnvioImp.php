@@ -67,15 +67,18 @@ Escalado: <b> $EscaladoIMP %</b> <br/>
 echo ("$bodyI");
 
  var_dump($mailer);
-$mailer->isSMTP();
+
 $mailer->SMTPDebug = 2;
+$mailer->isSMTP();
 $mailer->Host = "mail.pcbdemexico.com.mx"; // Cambia esto al servidor SMTP que estés utilizando
+$mailer->SMTPSecure = ssl;  
 $mailer->Port = 465; // Puerto para conexión TLS
 $mailer->SMTPAuth = true; // Habilita la autenticación SMTP
-
+// usuario y contraseña bien 
 $mailer->Username = "direccion@pcbdemexico.com.mx"; // Tu dirección de correo
 $mailer->Password = "Ra+272002"; // Contraseña de tu cuenta de correo
-echo ("PASO CONFIGURACION   ");
+
+//
 $mailer->setFrom("direccion@pcbdemexico.com.mx","desde Pagina WEB de PCB de Mexico");// Quien envia 
 $mailer->addAddress("jemjia404@gmail.com","Jesus Emmanuel Mejia Badillo" );// Quien recibe $NombreIMP 
 //$mailer->addCC("ingenieria@pcbdemexico.com.mx","M. en T. Rodolfo Morales Guerrero ");
