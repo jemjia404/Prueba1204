@@ -64,8 +64,8 @@ echo ($bodyI);
 $mailer->SMTPDebug = 2;
 $mailer->isSMTP();
 $mailer->Host = 'mail.pcbdemexico.com.mx'; 
-$mailer->Port = 465; 
-$mailer->SMTPSecure =PHPMailer::ENCRYPTION_SMTPS;
+$mailer->Port = 26; 
+$mailer->SMTPSecure =ssl;
 $mailer->Username = "direccion@pcbdemexico.com.mx"; 
 $mailer->Password = "Ra+272002"; 
 
