@@ -66,12 +66,11 @@ Escalado: <b> $EscaladoIMP %</b> <br/>
 ";
 echo ("$bodyI");
 
- var_dump($mailer);
 
 $mailer->SMTPDebug = 2;
 $mailer->isSMTP();
 $mailer->Host = "mail.pcbdemexico.com.mx"; // Cambia esto al servidor SMTP que estés utilizando
-$mailer->SMTPSecure = ssl;  
+$mailer->SMTPSecure = tls;  
 $mailer->Port = 465; // Puerto para conexión TLS
 $mailer->SMTPAuth = true; // Habilita la autenticación SMTP
 // usuario y contraseña bien 
