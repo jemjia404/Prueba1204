@@ -76,7 +76,7 @@ $mailer->Username = "direccion@pcbdemexico.com.mx"; // Tu dirección de correo
 $mailer->Password = "Ra+272002"; // Contraseña de tu cuenta de correo
 //
 $mailer->setFrom("direccion@pcbdemexico.com.mx","desde Pagina WEB de PCB de Mexico");// Quien envia 
-$mailer->addCC("mebj201920707@tese.edu.mx","Jesus Emmanuel Mejia Badillo" );// Quien recibe $NombreIMP 
+$mailer->addCC("direccion@pcbdemexico.com.mx","Jesus Emmanuel Mejia Badillo" );// Quien recibe $NombreIMP 
 $mailer->addAddress("ingenieria@pcbdemexico.com.mx","M. en T. Rodolfo Morales Guerrero ");
 //$mailer->addCC("$EmailIMP", "$NombreIMP");
 $mailer->Subject = 'Cotización de Impresion 3D desde pagina WEB';
