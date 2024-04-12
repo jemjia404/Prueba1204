@@ -1,11 +1,10 @@
 <?php
 $ArchivoIMP2=$NombreIMP=$EmailIMP=$TelefonoIMP=$CantidadIMP=$MaterialIMP=$colorMIMP=$ExtrasIMP=$EscaladoIMP="";
-
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
 require 'assets/php/Exception.php';
 require 'assets/php/PHPMailer.php';
 require 'assets/php/SMTP.php';
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 $mailer = new PHPMailer(true);
 if ($_SERVER["REQUEST_METHOD"] == "POST") { 
     $NombreIMP=$_POST["NombreUsuI"];
@@ -20,7 +19,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 if ($EscaladoIMP==""){
 $EscaladoIMP="100";
-
 }
 $bodyI="
 <head>   
@@ -35,7 +33,7 @@ $bodyI="
     color: rgb(227, 141, 237);
     }
     .p4 {
-    font-family: 'Kaushan Script',cursive;
+    font-family: 'Lucida Calligraphy',cursive;
     }
     .p3{
     font-family: Tahoma, Verdana, sans-serif;
@@ -43,9 +41,8 @@ $bodyI="
  </style>
  </head>
 <body >
-<div  style='background-color:blue;padding:10%:'> <p class='p4' style='color:white; text-align:center;padding-top:3%;font-size:48 px'>Pcb De México S De Rl Mi </p>
-<br/>
-
+<div  style='background-color:blue;padding:2%;'> 
+<p class='p4' style='color:white; text-align:center;padding-top:3%;font-size:5vw'>Pcb De México S De Rl Mi </p>
 </div>
 <div style=padding-left:20% >
 <h1 class='p4' >Cotización de Impresion 3D desde página WEB </h1>
@@ -62,32 +59,29 @@ Escalado: <b> $EscaladoIMP %</b> <br/>
 </div>
 <div  class='footer' style='padding:5%'></div>
 </body>
-
 ";
-echo ("$bodyI");
-
-
- $mailer->SMTPDebug = 2;
+echo ($bodyI);
+$mailer->SMTPDebug = 2;
 $mailer->isSMTP();
-$mailer->Host = 'mail.pcbdemexico.com.mx'; // Cambia esto al servidor SMTP que estés utilizando
-$mailer->Port = 465; // Puerto para conexión TLS
-$mailer->SMTPSecure =PHPMailer::ENCRYPTION_SMTPS;; // Habilita la autenticación SMTP
-$mailer->Username = "direccion@pcbdemexico.com.mx"; // Tu dirección de correo
-$mailer->Password = "Ra+272002"; // Contraseña de tu cuenta de correo
-//
-$mailer->setFrom("direccion@pcbdemexico.com.mx","desde Pagina WEB de PCB de Mexico");// Quien envia 
-$mailer->addCC("direccion@pcbdemexico.com.mx","Jesus Emmanuel Mejia Badillo" );// Quien recibe $NombreIMP 
+$mailer->Host = 'mail.pcbdemexico.com.mx'; 
+$mailer->Port = 465; 
+$mailer->SMTPSecure =PHPMailer::ENCRYPTION_SMTPS;
+$mailer->Username = "direccion@pcbdemexico.com.mx"; 
+$mailer->Password = "Ra+272002"; 
+
+$mailer->setFrom("direccion@pcbdemexico.com.mx","desde Pagina WEB de PCB de Mexico");
 $mailer->addAddress("ingenieria@pcbdemexico.com.mx","M. en T. Rodolfo Morales Guerrero ");
-//$mailer->addCC("$EmailIMP", "$NombreIMP");
+//$mailer->addAddress("ventas@pcbdemexico.com.mx", "ING. Rafael Tavera Paredes");
+//$mailer->addCC("compras@pcbdemexico.com.mx", "ING.");
+//$mailer->addCC("direccion@pcbdemexico.com.mx","Correo de envio" );
 $mailer->Subject = 'Cotización de Impresion 3D desde pagina WEB';
 $mailer->addAttachment( $_FILES["ArchivoIMP"]['tmp_name'],  $_FILES["ArchivoIMP"]['name']);
 $mailer->CharSet="UTF-8";
 $mailer->msgHTML("$bodyI ");
 $mailer->AltBody=strip_tags("$bodyI") ;
-
 if($mailer->send()){
     echo "Enviado "; 
-    header(' location: index.html');
+    header(' ');
 }else{
     echo 'No enviado ';
 }
