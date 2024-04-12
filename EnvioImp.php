@@ -70,10 +70,10 @@ $mailer->Username = "direccion@pcbdemexico.com.mx";
 $mailer->Password = "Ra+272002"; 
 
 $mailer->setFrom("direccion@pcbdemexico.com.mx","desde Pagina WEB de PCB de Mexico");
-$mailer->addAddress("ingenieria@pcbdemexico.com.mx","M. en T. Rodolfo Morales Guerrero ");
+//$mailer->addAddress("ingenieria@pcbdemexico.com.mx","M. en T. Rodolfo Morales Guerrero ");
 //$mailer->addAddress("ventas@pcbdemexico.com.mx", "ING. Rafael Tavera Paredes");
-//$mailer->addCC("compras@pcbdemexico.com.mx", "ING.");
-//$mailer->addCC("direccion@pcbdemexico.com.mx","Correo de envio" );
+//$mailer->addAddress("compras@pcbdemexico.com.mx", "ING.");
+$mailer->addAddress("direccion@pcbdemexico.com.mx","Correo de envio" );
 $mailer->Subject = 'Cotización de Impresion 3D desde pagina WEB';
 $mailer->addAttachment( $_FILES["ArchivoIMP"]['tmp_name'],  $_FILES["ArchivoIMP"]['name']);
 $mailer->CharSet="UTF-8";
