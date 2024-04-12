@@ -71,7 +71,7 @@ echo ("$bodyI");
 $mailer->isSMTP();
 $mailer->Host = 'mail.pcbdemexico.com.mx'; // Cambia esto al servidor SMTP que estés utilizando
 $mailer->Port = 465; // Puerto para conexión TLS
-$mailer->SMTPSecure =ssl; // Habilita la autenticación SMTP
+$mailer->SMTPSecure =PHPMailer::ENCRYPTION_SMTPS; // Habilita la autenticación SMTP
 $mailer->Username = "direccion@pcbdemexico.com.mx"; // Tu dirección de correo
 $mailer->Password = "Ra+272002"; // Contraseña de tu cuenta de correo
 //
