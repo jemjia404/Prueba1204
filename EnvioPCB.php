@@ -107,51 +107,34 @@ Cantidad de diametro de brocas:<b> $CantidadDDPCB</b><br/>
  </body>
 ";
 }
-//$mailer->isSMTP();
-//$mailer->SMTPDebug = 2;
-//$mailer->Host = 'mail.pcbdemexico.com.mx';
-//$mailer->Port = 465; 
-//$mailer->SMTPSecure =PHPMailer::ENCRYPTION_SMTPS;
-//$mailer->SMTPAuth = true; // Habilita la autenticación SMTP
+$mailer->isSMTP();
+$mailer->SMTPDebug = 2;
+$mailer->Host = 'smtp.gmail.com';
+$mailer->Port = 587; 
+$mailer->SMTPSecure =PHPMailer::ENCRYPTION_STARTTLS;
+$mailer->SMTPAuth = true; // Habilita la autenticación SMTP
 
-//$mailer->Username = "direccion@pcbdemexico.com.mx"; 
-//$mailer->Password = "Ra+272002"; 
+$mailer->Username = "lappcbmex@gmail.com"; 
+$mailer->Password = "Ra+272002"; 
 
-//$mailer->setFrom("direccion@pcbdemexico.com.mx","$NombrePCB desde Pagina WEB de PCB de Mexico");// Quien envia 
-//$mailer->addAddress("direccion@pcbdemexico.com.mx","Jesus Emmanuel Mejia Badillo" );// Quien recibe 
+$mailer->setFrom("direccion@pcbdemexico.com.mx","$NombrePCB desde Pagina WEB de PCB de Mexico");// Quien envia 
+$mailer->addAddress("direccion@pcbdemexico.com.mx","Jesus Emmanuel Mejia Badillo" );// Quien recibe 
 //$mailer->addCC("ingenieria@pcbdemexico.com.mx","M. en T. Rodolfo Morales Guerrero ");
 //$mailer->addCC("$EmailPCB", "$NombrePCB ");
 //$mailer->Subject = 'Cotización de PCB´s desde pagina WEB ';
-//$mailer->addAttachment($_FILES['Archivo_PCB']['tmp_name'], $_FILES['Archivo_PCB']['name']);
-//$mailer->CharSet="UTF-8";
-//$mailer->msgHTML("$bodyE");
-//$mailer->AltBody=strip_tags($bodyE) ;
+$mailer->addAttachment($_FILES['Archivo_PCB']['tmp_name'], $_FILES['Archivo_PCB']['name']);
+$mailer->CharSet="UTF-8";
+$mailer->msgHTML("$bodyE");
+$mailer->AltBody=strip_tags($bodyE) ;
 
-//if($mailer->send()){
-  //  echo "correo enviado ";
+if($mailer->send()){
+    echo "correo enviado ";
      //   $rst=var_dump($mailer);
-  // header('location:index.html');
-//}else{
-//    echo'No enviado ';
-//}
-// Datos del correo
-$destinatario = 'jemjia404@gmail.com';
-$asunto = 'Prueba de mail ';
-$cuerpo = 'Este es el cuerpo del correo.';
-
-// Configuración del encabezado
-$headers = "From: direccion@pcbdemexico.com\r\n";
-$headers .= "Reply-To: jemjia404@gmail.com\r\n";
-$headers .= "Content-Type:  charset=UTF-8\r\n";
-
-// Envío del correo
-if ($hola=mail($destinatario, $asunto, $cuerpo, $headers)) {
-        var_dump($hola);
-    echo 'Correo enviado correctamente.';
-} else {
-    echo 'Error al enviar el correo.';
-        var_dump($hola);
+ header('location:index.html');
+}else{
+    echo'No enviado ';
 }
+/// Datos del correo
 
 
 
