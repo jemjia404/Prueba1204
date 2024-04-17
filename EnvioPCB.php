@@ -126,7 +126,7 @@ $mailer->addAttachment($_FILES['Archivo_PCB']['tmp_name'], $_FILES['Archivo_PCB'
 $mailer->CharSet="UTF-8";
 $mailer->msgHTML("$bodyE");
 $mailer->AltBody=strip_tags($bodyE) ;
-rst=var_dump("$mailer");
+rst=var_dump($mailer);
 if($mailer->send()){
     echo "correo enviado "
         echo "$rst";
