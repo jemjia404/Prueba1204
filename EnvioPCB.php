@@ -145,10 +145,12 @@ $headers .= "Reply-To: jemjia404@gmail.com\r\n";
 $headers .= "Content-Type:  charset=UTF-8\r\n";
 
 // Envío del correo
-if (mail($destinatario, $asunto, $cuerpo, $headers)) {
+if ($hola=mail($destinatario, $asunto, $cuerpo, $headers)) {
+        var_dump($hola);
     echo 'Correo enviado correctamente.';
 } else {
     echo 'Error al enviar el correo.';
+        var_dump($hola);
 }
 
 
