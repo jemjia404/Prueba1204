@@ -111,7 +111,7 @@ $mailer->isSMTP();
 $mailer->SMTPDebug = 2;
 $mailer->Host = 'smtp.gmail.com';
 $mailer->Port = 587; 
-$mailer->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+$mailer->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
 $mailer->SMTPAuth = true; 
 
 $mailer->Username = "lappcbmex@gmail.com"; 
