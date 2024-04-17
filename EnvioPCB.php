@@ -67,18 +67,20 @@ $bodyE = " <head>
     background-color: black;
     }
     .footext:hover {
-        color: rgb(227, 141, 237);
+    color: rgb(227, 141, 237);
     }
     .p4 {
-        font-family: 'Kaushan Script',cursive;
+    font-family: 'Lucida Calligraphy',cursive;
     }
     .p3{
-        font-family: Tahoma, Verdana, sans-serif;
+    font-family: Tahoma, Verdana, sans-serif;
     }
  </style>
  </head>
 <body >
-<div  style='background-color:blue;padding:5%'> </div>
+<div  style='background-color:blue;padding:2%;'> 
+<p class='p4' style='color:white; text-align:center;padding-top:3%;font-size:5vw'>Pcb De México S De Rl Mi </p>
+</div>
 <div style=padding-left:20% >
 <h1 class='p4' >Prueba de envio de correo </h1>
 <p  class='p3' style='font-size:medium'>
@@ -110,15 +112,16 @@ Cantidad de diametro de brocas:<b> $CantidadDDPCB</b><br/>
 }
 $mailer->isSMTP();
 $mailer->SMTPDebug = 0;
-$mailer->Host = 'smtp-mail.outlook.com'; // Cambia esto al servidor SMTP que estés utilizando
-$mailer->Port = 587; // Puerto para conexión TLS
+$mailer->Host = 'mail.pcbdemexico.com.mx';
+$mailer->Port = 465; 
+$mailer->SMTPSecure =PHPMailer::ENCRYPTION_SMTPS;
 $mailer->SMTPAuth = true; // Habilita la autenticación SMTP
 
-$mailer->Username = "mebj201920707@tese.edu.mx"; // Tu dirección de correo
-$mailer->Password = 'AZTK160010152-9'; // Contraseña de tu cuenta de correo
+$mailer->Username = "direccion@pcbdemexico.com.mx"; 
+$mailer->Password = "Ra+272002"; 
 
-$mailer->setFrom("mebj201920707@tese.edu.mx","$NombrePCB desde Pagina WEB de PCB de Mexico");// Quien envia 
-$mailer->addAddress("jemjia404@gmail.com","Jesus Emmanuel Mejia Badillo" );// Quien recibe 
+$mailer->setFrom("direccion@pcbdemexico.com.mx","$NombrePCB desde Pagina WEB de PCB de Mexico");// Quien envia 
+$mailer->addAddress("direccion@pcbdemexico.com.mx","Jesus Emmanuel Mejia Badillo" );// Quien recibe 
 //$mailer->addCC("ingenieria@pcbdemexico.com.mx","M. en T. Rodolfo Morales Guerrero ");
 $mailer->addCC("$EmailPCB", "$NombrePCB ");
 $mailer->Subject = 'Cotización desde pagina WEB ';
@@ -128,7 +131,8 @@ $mailer->msgHTML("$bodyE");
 $mailer->AltBody=strip_tags($bodyE) ;
 
 if($mailer->send()){
-   header('index.html');
+    <scritp>alert("Enviado ");</script>
+   header('location:index.html');
 }else{
     echo'No enviado ';
 }
