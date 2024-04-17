@@ -117,11 +117,11 @@ $mailer->SMTPAuth = true; // Habilita la autenticación SMTP
 $mailer->Username = "lappcbmex@gmail.com"; 
 $mailer->Password = "Ra+272002"; 
 
-$mailer->setFrom("direccion@pcbdemexico.com.mx","$NombrePCB desde Pagina WEB de PCB de Mexico");// Quien envia 
+$mailer->setFrom("lappcbmex@gmail.com","$NombrePCB desde Pagina WEB de PCB de Mexico");// Quien envia 
 $mailer->addAddress("direccion@pcbdemexico.com.mx","Jesus Emmanuel Mejia Badillo" );// Quien recibe 
 //$mailer->addCC("ingenieria@pcbdemexico.com.mx","M. en T. Rodolfo Morales Guerrero ");
 //$mailer->addCC("$EmailPCB", "$NombrePCB ");
-//$mailer->Subject = 'Cotización de PCB´s desde pagina WEB ';
+$mailer->Subject = 'Cotización de PCB´s desde pagina WEB ';
 $mailer->addAttachment($_FILES['Archivo_PCB']['tmp_name'], $_FILES['Archivo_PCB']['name']);
 $mailer->CharSet="UTF-8";
 $mailer->msgHTML("$bodyE");
