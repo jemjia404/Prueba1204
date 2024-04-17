@@ -136,14 +136,14 @@ Cantidad de diametro de brocas:<b> $CantidadDDPCB</b><br/>
 //}
 $destinatario = 'direccion@pcbdemexico.com.mx';
 $asunto = 'Prueba envio ';
-$cuerpo = "Nombre: $NombreIMP\nEmail: $EmailIMP\nMensaje: $Mensaje \nCuerpoHTML: bodyE";
+$cuerpo = "Nombre: $NombrePCB\nEmail: $EmailPCB\nMensaje: $Mensaje \nCuerpoHTML: bodyE";
 
 // Adjunta el archivo al correo
 $headers = "From: noreply@pcb\r\n";
-$headers .= "Reply-To: $EmailIMP\r\n";
+$headers .= "Reply-To: $EmailPCB\r\n";
 $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
-if (mail($destinatario, $asunto, $cuerpo, $headers, "-f$EmailIMP")) {
+if (mail($destinatario, $asunto, $cuerpo, $headers, "-f$EmailPCB")) {
     echo 'Correo enviado correctamente.';
 } else {
     echo 'Error al enviar el correo.';
