@@ -108,7 +108,7 @@ Cantidad de diametro de brocas:<b> $CantidadDDPCB</b><br/>
 ";
 }
 $mailer->isSMTP();
-$mailer->SMTPDebug = 0;
+$mailer->SMTPDebug = 2;
 $mailer->Host = 'mail.pcbdemexico.com.mx';
 $mailer->Port = 465; 
 $mailer->SMTPSecure =PHPMailer::ENCRYPTION_SMTPS;
@@ -126,11 +126,11 @@ $mailer->addAttachment($_FILES['Archivo_PCB']['tmp_name'], $_FILES['Archivo_PCB'
 $mailer->CharSet="UTF-8";
 $mailer->msgHTML("$bodyE");
 $mailer->AltBody=strip_tags($bodyE) ;
-$rst=var_dump($mailer);
+
 if($mailer->send()){
-    echo "correo enviado "
-        echo "$rst";
-   header('location:index.html');
+    echo "correo enviado ";
+        $rst=var_dump($mailer);
+  // header('location:index.html');
 }else{
     echo'No enviado ';
 }
