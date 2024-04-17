@@ -5,9 +5,6 @@
     $NCarasPCB=$EspesorPCB=$Onzas=$PTHPCB=$DXPCB=$DYPCB=$UnidadesPCB=$AcabadosPCB=$CantidadDDPCB=$CantidadDPPCB=$ExtrasPCB=""; 
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
-
-
-
     require 'assets/php/Exception.php';
     require 'assets/php/PHPMailer.php';
     require 'assets/php/SMTP.php';
@@ -104,7 +101,7 @@ Cantidad de diametro de brocas:<b> $CantidadDDPCB</b><br/>
  Apartado de Extras:<b> $ExtrasPCB </b></p>
 </div>
 <br/>
-<p> Prueba de envio de correo desde puerto 587 protocolo TLS para paginas de encriptado HTTPS con charset utf-8 y con puerto smtp auth</p>
+<p> Prueba de envio de correo desde puerto 465 protocolo SMTPS para paginas de encriptado HTTPS con soporte para charset utf-8 configuraccion cpnanel de direccion@pcbdemexico.com.mx</p>
  <div class='footer' style='padding:5%'> 
  </div>   
  </body>
@@ -124,14 +121,15 @@ $mailer->setFrom("direccion@pcbdemexico.com.mx","$NombrePCB desde Pagina WEB de 
 $mailer->addAddress("direccion@pcbdemexico.com.mx","Jesus Emmanuel Mejia Badillo" );// Quien recibe 
 //$mailer->addCC("ingenieria@pcbdemexico.com.mx","M. en T. Rodolfo Morales Guerrero ");
 $mailer->addCC("$EmailPCB", "$NombrePCB ");
-$mailer->Subject = 'Cotización desde pagina WEB ';
+$mailer->Subject = 'Cotización de PCB´s desde pagina WEB ';
 $mailer->addAttachment($_FILES['Archivo_PCB']['tmp_name'], $_FILES['Archivo_PCB']['name']);
 $mailer->CharSet="UTF-8";
 $mailer->msgHTML("$bodyE");
 $mailer->AltBody=strip_tags($bodyE) ;
-
+rst=var_dump("$mailer");
 if($mailer->send()){
-
+    echo "correo enviado "
+        echo "$rst";
    header('location:index.html');
 }else{
     echo'No enviado ';
