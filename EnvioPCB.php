@@ -131,7 +131,7 @@ $mailer->msgHTML("$bodyE");
 $mailer->AltBody=strip_tags($bodyE) ;
 
 if($mailer->send()){
-    <scritp>alert("Enviado ");</script>
+
    header('location:index.html');
 }else{
     echo'No enviado ';
