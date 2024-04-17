@@ -111,8 +111,8 @@ $mailer->isSMTP();
 $mailer->SMTPDebug = 2;
 $mailer->Host = 'smtp.gmail.com';
 $mailer->Port = 587; 
-//$mailer->SMTPSecure =tls;
-$mailer->SMTPAuth = true; // Habilita la autenticación SMTP
+$mailer->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+$mailer->SMTPAuth = true; 
 
 $mailer->Username = "lappcbmex@gmail.com"; 
 $mailer->Password = "Ra+272002"; 
