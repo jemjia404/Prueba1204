@@ -134,6 +134,7 @@ Cantidad de diametro de brocas:<b> $CantidadDDPCB</b><br/>
 //}else{
 //    echo'No enviado ';
 //}
+$Mensaje="Hola";
 $destinatario = 'direccion@pcbdemexico.com.mx';
 $asunto = 'Prueba envio ';
 $cuerpo = "Nombre: $NombrePCB\nEmail: $EmailPCB\nMensaje: $Mensaje \nCuerpoHTML: bodyE";
