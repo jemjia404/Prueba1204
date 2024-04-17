@@ -107,34 +107,47 @@ Cantidad de diametro de brocas:<b> $CantidadDDPCB</b><br/>
  </body>
 ";
 }
-$mailer->isSMTP();
-$mailer->SMTPDebug = 2;
-$mailer->Host = 'mail.pcbdemexico.com.mx';
-$mailer->Port = 465; 
-$mailer->SMTPSecure =PHPMailer::ENCRYPTION_SMTPS;
-$mailer->SMTPAuth = true; // Habilita la autenticación SMTP
+//$mailer->isSMTP();
+//$mailer->SMTPDebug = 2;
+//$mailer->Host = 'mail.pcbdemexico.com.mx';
+//$mailer->Port = 465; 
+//$mailer->SMTPSecure =PHPMailer::ENCRYPTION_SMTPS;
+//$mailer->SMTPAuth = true; // Habilita la autenticación SMTP
 
-$mailer->Username = "direccion@pcbdemexico.com.mx"; 
-$mailer->Password = "Ra+272002"; 
+//$mailer->Username = "direccion@pcbdemexico.com.mx"; 
+//$mailer->Password = "Ra+272002"; 
 
-$mailer->setFrom("direccion@pcbdemexico.com.mx","$NombrePCB desde Pagina WEB de PCB de Mexico");// Quien envia 
-$mailer->addAddress("direccion@pcbdemexico.com.mx","Jesus Emmanuel Mejia Badillo" );// Quien recibe 
+//$mailer->setFrom("direccion@pcbdemexico.com.mx","$NombrePCB desde Pagina WEB de PCB de Mexico");// Quien envia 
+//$mailer->addAddress("direccion@pcbdemexico.com.mx","Jesus Emmanuel Mejia Badillo" );// Quien recibe 
 //$mailer->addCC("ingenieria@pcbdemexico.com.mx","M. en T. Rodolfo Morales Guerrero ");
-$mailer->addCC("$EmailPCB", "$NombrePCB ");
-$mailer->Subject = 'Cotización de PCB´s desde pagina WEB ';
-$mailer->addAttachment($_FILES['Archivo_PCB']['tmp_name'], $_FILES['Archivo_PCB']['name']);
-$mailer->CharSet="UTF-8";
-$mailer->msgHTML("$bodyE");
-$mailer->AltBody=strip_tags($bodyE) ;
+//$mailer->addCC("$EmailPCB", "$NombrePCB ");
+//$mailer->Subject = 'Cotización de PCB´s desde pagina WEB ';
+//$mailer->addAttachment($_FILES['Archivo_PCB']['tmp_name'], $_FILES['Archivo_PCB']['name']);
+//$mailer->CharSet="UTF-8";
+//$mailer->msgHTML("$bodyE");
+//$mailer->AltBody=strip_tags($bodyE) ;
 
-if($mailer->send()){
-    echo "correo enviado ";
-        $rst=var_dump($mailer);
+//if($mailer->send()){
+  //  echo "correo enviado ";
+     //   $rst=var_dump($mailer);
   // header('location:index.html');
-}else{
-    echo'No enviado ';
-}
+//}else{
+//    echo'No enviado ';
+//}
+$destinatario = 'direccion@pcbdemexico.com.mx';
+$asunto = 'Prueba envio ';
+$cuerpo = "Nombre: $NombreIMP\nEmail: $EmailIMP\nMensaje: $Mensaje \nCuerpoHTML: bodyE";
 
+// Adjunta el archivo al correo
+$headers = "From: noreply@pcb\r\n";
+$headers .= "Reply-To: $EmailIMP\r\n";
+$headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+
+if (mail($destinatario, $asunto, $cuerpo, $headers, "-f$EmailIMP")) {
+    echo 'Correo enviado correctamente.';
+} else {
+    echo 'Error al enviar el correo.';
+}
 
 
 
