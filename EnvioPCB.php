@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $ExtrasPCB="Sin Extras sugeridos ";
     }
 $dia=strftime("%A %d de %B del %Y");
-$bodyE = " <head>   
+$bodyE = "<head>   
     <style>  
     .footer {
     padding: 2%;
@@ -100,8 +100,9 @@ Dimension en eje Y: <b>$DYPCB $UnidadesPCB</b> <br/>
  Acabados: <b>$AcabadosPCB </b><br/>
 Cantidad de diametro de brocas:<b> $CantidadDDPCB</b><br/>
  Cantidad de Perforaciones: <b> $CantidadDPPCB</b> <br/> 
- Apartado de Extras:<b> $ExtrasPCB </b></p><br/>
+ Apartado de Extras:<b> $ExtrasPCB </b> 
  Fecha de emision: $dia<br/>
+ </p><br/>
 </div>
 <br/>
 <p> Prueba de envio de correo desde puerto 465 protocolo SMTPS para paginas de encriptado HTTPS con soporte para charset utf-8 configuraccion cpnanel de direccion@pcbdemexico.com.mx</p>
