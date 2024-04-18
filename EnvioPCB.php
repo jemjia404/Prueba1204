@@ -54,9 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($ExtrasPCB==""){
         $ExtrasPCB="Sin Extras sugeridos ";
     }
-$dateTimeObj = new DateTime('now', new DateTimeZone('America/Mexico_City'));
-$dateFormatted = IntlDateFormatter::formatObject($dateTimeObj, 'eeee d \d\e MMMM \d\e\l y', 'es_MX');
-echo $dateFormatted; 
+$dia=strftime("%A %d de %B del %Y")
 
 $bodyE = " <head>   
     <style>  
@@ -102,7 +100,7 @@ Dimension en eje Y: <b>$DYPCB $UnidadesPCB</b> <br/>
 Cantidad de diametro de brocas:<b> $CantidadDDPCB</b><br/>
  Cantidad de Perforaciones: <b> $CantidadDPPCB</b> <br/> 
  Apartado de Extras:<b> $ExtrasPCB </b></p><br/>
- Fecha de emision: $dateFormatted<br/>
+ Fecha de emision: $dia<br/>
  
 </div>
 <br/>
