@@ -82,7 +82,7 @@ $mailer->CharSet="UTF-8";
 $mailer->msgHTML("$bodyI ");
 $mailer->AltBody=strip_tags("$bodyI") ;
 $respuesta=$mailer->send();
-var_dump($)respuesta;
+var_dump($respuesta);
 if($respuesta==true){
 header('location: Gracias.html');
  exit();
