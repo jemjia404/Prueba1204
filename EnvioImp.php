@@ -81,7 +81,8 @@ $mailer->addAttachment( $_FILES["ArchivoIMP"]['tmp_name'],  $_FILES["ArchivoIMP"
 $mailer->CharSet="UTF-8";
 $mailer->msgHTML("$bodyI ");
 $mailer->AltBody=strip_tags("$bodyI") ;
-if($mailer->send()){
+$respuesta=$mailer->send()
+if($respuesta=true){
 header('location: Gracias.html');
  exit();
 }else{
