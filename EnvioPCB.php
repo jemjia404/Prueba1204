@@ -131,16 +131,12 @@ $mailer->addAttachment($_FILES['Archivo_PCB']['tmp_name'], $_FILES['Archivo_PCB'
 $mailer->CharSet="UTF-8";
 $mailer->msgHTML("$bodyE");
 $mailer->AltBody=strip_tags($bodyE) ;
-
-if($mailer->send()){
-    echo "correo enviado ";
-     //   $rst=var_dump($mailer);
- header('location:index.html');
+$respuesta=$mailer->send();
+if($respuesta==true){
+header ("location: Gracias.html");
+ exit();
 }else{
-    echo'No enviado ';
+ header ('Location: index.html');
+ exit();
 }
-/// Datos del correo
-
-
-
 ?>
