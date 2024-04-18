@@ -64,8 +64,6 @@ Fecha de emision: $dia <br/>
 <div  class='footer' style='padding:5%'></div>
 </body>
 ";
-
-echo ($bodyI);
 $mailer->SMTPDebug = 0;
 $mailer->isSMTP();
 $mailer->Host = 'mail.pcbdemexico.com.mx'; 
