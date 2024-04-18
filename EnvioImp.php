@@ -82,7 +82,7 @@ $mailer->CharSet="UTF-8";
 $mailer->msgHTML("$bodyI ");
 $mailer->AltBody=strip_tags("$bodyI") ;
 if($mailer->send()){
-    echo "ls";
+    include("Gracias.html");
 header('Refresh: 3; URL=Gracias.html');
     exit;
 }else{
