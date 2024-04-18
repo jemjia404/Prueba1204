@@ -1,6 +1,8 @@
 
 
 <?php 
+date_default_timezone_set('America/Mexico_City');
+setlocale(LC_ALL, 'es_MX');
     $ArchivoPCB=$NombrePCB=$EmailPCB=$EmpresaPCB=$TelefonoPCB=$CantidadPCB=$MaterialPCB=$ColorMAPCB=$SerigrafiaPCB="";
     $NCarasPCB=$EspesorPCB=$Onzas=$PTHPCB=$DXPCB=$DYPCB=$UnidadesPCB=$AcabadosPCB=$CantidadDDPCB=$CantidadDPPCB=$ExtrasPCB=""; 
     use PHPMailer\PHPMailer\PHPMailer;
