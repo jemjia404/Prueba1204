@@ -17,7 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $colorMIMP=$_POST["ColorIMp"];
     $ExtrasIMP=$_POST["ExtrasIMP"];
     $EscaladoIMP=$_POST["PorCentEsca"];
-
 }
 if ($EscaladoIMP==""){
 $EscaladoIMP="100";
@@ -83,7 +82,7 @@ $mailer->CharSet="UTF-8";
 $mailer->msgHTML("$bodyI ");
 $mailer->AltBody=strip_tags("$bodyI") ;
 if($mailer->send()){
-    header('location:Gracias.html');
+  header('Location: Gracias.html');
 }else{
     echo 'No enviado ';
 }
