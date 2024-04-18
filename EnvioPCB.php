@@ -54,6 +54,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($ExtrasPCB==""){
         $ExtrasPCB="Sin Extras sugeridos ";
     }
+$dateTimeObj = new DateTime('now', new DateTimeZone('America/Mexico_City'));
+$dateFormatted = IntlDateFormatter::formatObject($dateTimeObj, 'eeee d \d\e MMMM \d\e\l y', 'es_MX');
+echo $dateFormatted; 
 
 $bodyE = " <head>   
     <style>  
@@ -79,7 +82,7 @@ $bodyE = " <head>
 <p class='p4' style='color:white; text-align:center;padding-top:3%;font-size:5vw'>Pcb De México S De Rl Mi </p>
 </div>
 <div style=padding-left:20% >
-<h1 class='p4' >Prueba de envio de correo </h1>
+<h1 class='p4' >Cotizacion de PCB desde pagina WEB </h1>
 <p  class='p3' style='font-size:medium'>
 Usuario:<b>$NombrePCB</b><br/>
 Correo:<b> $EmailPCB</b><br/>
@@ -98,7 +101,9 @@ Dimension en eje Y: <b>$DYPCB $UnidadesPCB</b> <br/>
  Acabados: <b>$AcabadosPCB </b><br/>
 Cantidad de diametro de brocas:<b> $CantidadDDPCB</b><br/>
  Cantidad de Perforaciones: <b> $CantidadDPPCB</b> <br/> 
- Apartado de Extras:<b> $ExtrasPCB </b></p>
+ Apartado de Extras:<b> $ExtrasPCB </b></p><br/>
+ Fecha de emision: $dateFormatted<br/>
+ 
 </div>
 <br/>
 <p> Prueba de envio de correo desde puerto 465 protocolo SMTPS para paginas de encriptado HTTPS con soporte para charset utf-8 configuraccion cpnanel de direccion@pcbdemexico.com.mx</p>
@@ -109,16 +114,16 @@ Cantidad de diametro de brocas:<b> $CantidadDDPCB</b><br/>
 }
 $mailer->isSMTP();
 $mailer->SMTPDebug = 2;
-$mailer->Host = 'smtp.gmail.com';
-$mailer->Port = 587; 
+$mailer->Host = 'mail.pcbdemexico.com.mx';
+$mailer->Port = 465; 
 $mailer->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
 $mailer->SMTPAuth = true; 
 
-$mailer->Username = "lappcbmex@gmail.com"; 
+$mailer->Username = "direccion@pcbdemexico.com.mx"; 
 $mailer->Password = "Ra+272002"; 
 
-$mailer->setFrom("lappcbmex@gmail.com","$NombrePCB desde Pagina WEB de PCB de Mexico");// Quien envia 
-$mailer->addAddress("direccion@pcbdemexico.com.mx","Jesus Emmanuel Mejia Badillo" );// Quien recibe 
+$mailer->setFrom("direccion@pcbdemexico.com.mx","$NombrePCB desde Pagina WEB de PCB de Mexico");// Quien envia 
+$mailer->addAddress("lappcbmex@gmail.com","Jesus Emmanuel Mejia Badillo" );// Quien recibe 
 //$mailer->addCC("ingenieria@pcbdemexico.com.mx","M. en T. Rodolfo Morales Guerrero ");
 //$mailer->addCC("$EmailPCB", "$NombrePCB ");
 $mailer->Subject = 'Cotización de PCB´s desde pagina WEB ';
