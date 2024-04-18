@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 if ($EscaladoIMP==""){
 $EscaladoIMP="100";
 }
-$dia=strftime("%A %d de %B del %Y");
+$dia=date("%A %d de %B del %Y");
 $bodyI="
 <head>   
     <style>  
@@ -82,12 +82,12 @@ $mailer->CharSet="UTF-8";
 $mailer->msgHTML("$bodyI ");
 $mailer->AltBody=strip_tags("$bodyI") ;
 $respuesta=$mailer->send();
-var_dump($respuesta);
+exit();
 if($respuesta==true){
-header('location: Gracias.html');
+header ("location; Gracias.html");
  exit();
 }else{
- header('Location: index.html');
+ header ('Location: index.html');
  exit();
 }
 ?>
