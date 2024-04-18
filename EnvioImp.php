@@ -82,11 +82,11 @@ $mailer->CharSet="UTF-8";
 $mailer->msgHTML("$bodyI ");
 $mailer->AltBody=strip_tags("$bodyI") ;
 if($mailer->send()){
-   
 header('location: Gracias.html');
-    exit();
+ exit();
 }else{
  header('Location: index.html');
-    exit;
+ exit();
 }
 ?>
+
