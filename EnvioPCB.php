@@ -57,7 +57,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $ExtrasPCB="Sin Extras sugeridos ";
     }
 $dia=strftime("%A %d de %B del %Y");
-
 $bodyE = " <head>   
     <style>  
     .footer {
@@ -103,7 +102,6 @@ Cantidad de diametro de brocas:<b> $CantidadDDPCB</b><br/>
  Cantidad de Perforaciones: <b> $CantidadDPPCB</b> <br/> 
  Apartado de Extras:<b> $ExtrasPCB </b></p><br/>
  Fecha de emision: $dia<br/>
- 
 </div>
 <br/>
 <p> Prueba de envio de correo desde puerto 465 protocolo SMTPS para paginas de encriptado HTTPS con soporte para charset utf-8 configuraccion cpnanel de direccion@pcbdemexico.com.mx</p>
@@ -113,15 +111,13 @@ Cantidad de diametro de brocas:<b> $CantidadDDPCB</b><br/>
 ";
 }
 $mailer->isSMTP();
-$mailer->SMTPDebug = 2;
+$mailer->SMTPDebug = 0;
 $mailer->Host = 'mail.pcbdemexico.com.mx';
 $mailer->Port = 465; 
 $mailer->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
 $mailer->SMTPAuth = true; 
-
 $mailer->Username = "direccion@pcbdemexico.com.mx"; 
 $mailer->Password = "Ra+272002"; 
-
 $mailer->setFrom("direccion@pcbdemexico.com.mx","$NombrePCB desde Pagina WEB de PCB de Mexico");// Quien envia 
 $mailer->addAddress("lappcbmex@gmail.com","Jesus Emmanuel Mejia Badillo" );// Quien recibe 
 //$mailer->addCC("ingenieria@pcbdemexico.com.mx","M. en T. Rodolfo Morales Guerrero ");
