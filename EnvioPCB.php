@@ -126,7 +126,7 @@ $mailer->Subject = 'Cotización de PCB´s desde pagina WEB ';
 $mailer->addAttachment($_FILES['Archivo_PCB']['tmp_name'], $_FILES['Archivo_PCB']['name']);
 $mailer->CharSet="UTF-8";
 $mailer->msgHTML("$bodyE");
-$mailer->AltBody=strip_tags($bodyE) ;
+$mailer->AltBody=strip_tags($bodyE);
 $respuesta=$mailer->send();
 if($respuesta==true){
 header ("location: Gracias.html");
