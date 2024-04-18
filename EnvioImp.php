@@ -83,7 +83,7 @@ $mailer->msgHTML("$bodyI ");
 $mailer->AltBody=strip_tags("$bodyI") ;
 if($mailer->send()){
     echo "ls";
-header('Location: Gracias.html');
+header('Refresh: 3; URL=Gracias.html');
     exit;
 }else{
  header('Location: index.html');
