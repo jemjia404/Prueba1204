@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($ExtrasPCB==""){
         $ExtrasPCB="Sin Extras sugeridos ";
     }
-$dia=strftime("%A %d de %B del %Y")
+$dia=strftime("%A %d de %B del %Y");
 
 $bodyE = " <head>   
     <style>  
