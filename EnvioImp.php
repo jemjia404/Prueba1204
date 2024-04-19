@@ -79,8 +79,8 @@ $mailer->addAddress("lappcbmex@gmail.com","Ingenieria" );// Quien recibe
 $mailer->Subject = 'Cotización de Impresion 3D desde pagina WEB';
 $mailer->addAttachment( $_FILES["ArchivoIMP"]['tmp_name'],  $_FILES["ArchivoIMP"]['name']);
 $mailer->CharSet="UTF-8";
-$mailer->msgHTML("$bodyI $bodyE ");
-$mailer->AltBody=strip_tags("$bodyI $bodyE") ;
+$mailer->msgHTML("$bodyI");
+$mailer->AltBody=strip_tags("$bodyI") ;
 $respuesta=$mailer->send();
 if($respuesta==true){
 header ("location: Gracias.html");
