@@ -1,4 +1,5 @@
 <?php 
+ob_start();
 date_default_timezone_set('America/Mexico_City');
 setlocale(LC_ALL, 'es_MX');
     $ArchivoPCB=$NombrePCB=$EmailPCB=$EmpresaPCB=$TelefonoPCB=$CantidadPCB=$MaterialPCB=$ColorMAPCB=$SerigrafiaPCB="";
@@ -133,8 +134,8 @@ $mailer->AltBody=strip_tags("$bodyE") ;
 $respuesta="true";
 if($respuesta==true){
  header ('location: Gracias.html');
-die();
-// exit();
+ exit();
+ob_end_clean();
 }else{
  header ('Location: index.html');
     
