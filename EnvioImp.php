@@ -1,6 +1,7 @@
 <?php
 date_default_timezone_set('America/Mexico_City');
 setlocale(LC_ALL, 'es_MX');
+ob_start();
 $ArchivoIMP2=$NombreIMP=$EmailIMP=$TelefonoIMP=$CantidadIMP=$MaterialIMP=$colorMIMP=$ExtrasIMP=$EscaladoIMP="";
 require 'assets/php/Exception.php';
 require 'assets/php/PHPMailer.php';
@@ -73,9 +74,9 @@ $mailer->Username = "direccion@pcbdemexico.com.mx";
 $mailer->Password = "Ra+272002"; 
 $mailer->setFrom("direccion@pcbdemexico.com.mx","$NombreIMP desde Pagina WEB de PCB de Mexico");// Quien envia 
 $mailer->addAddress("lappcbmex@gmail.com","Ingenieria" );// Quien recibe 
-//$mailer->addAddress("ingenieria@pcbdemexico.com.mx","M. en T. Rodolfo Morales Guerrero ");
-//$mailer->addAddress("ventas@pcbdemexico.com.mx", "ING. Rafael Tavera Paredes");
-//$mailer->addAddress("compras@pcbdemexico.com.mx", "ING.");
+$mailer->addAddress("ingenieria@pcbdemexico.com.mx","M. en T. Rodolfo Morales Guerrero ");
+$mailer->addAddress("ventas@pcbdemexico.com.mx", "ING. Rafael Tavera Paredes");
+$mailer->addAddress("compras@pcbdemexico.com.mx", "ING.Adriana Monserrat Tavera Velázquez");
 $mailer->Subject = 'Cotización de Impresion 3D desde pagina WEB';
 $mailer->addAttachment( $_FILES["ArchivoIMP"]['tmp_name'],  $_FILES["ArchivoIMP"]['name']);
 $mailer->CharSet="UTF-8";
@@ -84,10 +85,12 @@ $mailer->AltBody=strip_tags("$bodyI") ;
 $respuesta=$mailer->send();
 if($respuesta==true){
 header ("location: Gracias.html");
- exit();
+exit();
+ob_end_clean();
 }else{
- header ('Location: index.html');
- exit();
+header ('Location: index.html');
+exit();
+ob_end_clean();
 }
 ?>
 
