@@ -126,8 +126,8 @@ $mailer->addAttachment($_FILES['Archivo_PCB']['tmp_name'], $_FILES['Archivo_PCB'
 $mailer->CharSet="UTF-8";
 $mailer->msgHTML("$bodyE");
 $mailer->AltBody=strip_tags($bodyE);
-$respuesta=$mailer->send();
-if($respuesta===true){
+$respuestai=$mailer->send();
+if($respuestai==true){
     header ('Location: Gracias.html');
     exit();
 }else{
