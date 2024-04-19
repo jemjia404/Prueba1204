@@ -132,11 +132,12 @@ $mailer->AltBody=strip_tags("$bodyE") ;
 //var_dump($mailer);
 $respuesta="true";
 if($respuesta==true){
-    var_dump($_SERVER);
  header ('location: Gracias.html');
- exit();
+die();
+// exit();
 }else{
  header ('Location: index.html');
+    
  exit();
 }
 ?>
