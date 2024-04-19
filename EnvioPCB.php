@@ -98,7 +98,7 @@ Dimension en eje Y: <b>$DYPCB $UnidadesPCB</b> <br/>
  Acabados: <b>$AcabadosPCB </b><br/>
 Cantidad de diametro de brocas:<b> $CantidadDDPCB</b><br/>
  Cantidad de Perforaciones: <b> $CantidadDPPCB</b> <br/> 
- Apartado de Extras:<b> $ExtrasPCB </b> 
+ Apartado de Extras:<b> $ExtrasPCB </b> <br/>
  Fecha de emision: $dia<br/>
  </p><br/>
 </div>
