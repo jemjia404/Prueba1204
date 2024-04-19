@@ -55,7 +55,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $ExtrasPCB="Sin Extras sugeridos ";
     }
 $dia=strftime("%A %d de %B del %Y");
-$bodyE = "<head>   
+$bodyE = "
+    <head>   
     <style>  
     .footer {
     padding: 2%;
@@ -131,7 +132,8 @@ $mailer->AltBody=strip_tags("$bodyE") ;
 //var_dump($mailer);
 $respuesta="true";
 if($respuesta==true){
-header ('location: Gracias.html');
+    var_dump($_SERVER);
+ //   header ('location: Gracias.html');
  exit();
 }else{
  header ('Location: index.html');
