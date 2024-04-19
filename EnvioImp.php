@@ -1,7 +1,7 @@
 <?php
+ob_start();
 date_default_timezone_set('America/Mexico_City');
 setlocale(LC_ALL, 'es_MX');
-ob_start();
 $ArchivoIMP2=$NombreIMP=$EmailIMP=$TelefonoIMP=$CantidadIMP=$MaterialIMP=$colorMIMP=$ExtrasIMP=$EscaladoIMP="";
 require 'assets/php/Exception.php';
 require 'assets/php/PHPMailer.php';
@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 if ($EscaladoIMP==""){
 $EscaladoIMP="100";
 }
-$dia=date("%A %d de %B del %Y");
+$dia=strftime("%A %d de %B del %Y");
 $bodyI="
 <head>   
     <style>  
