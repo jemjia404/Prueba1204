@@ -121,24 +121,22 @@ $mailer->Username = "direccion@pcbdemexico.com.mx";
 $mailer->Password = "Ra+272002"; 
 $mailer->setFrom("direccion@pcbdemexico.com.mx","$NombrePCB desde Pagina WEB de PCB de Mexico");// Quien envia 
 $mailer->addAddress("lappcbmex@gmail.com","Ingenieria" );// Quien recibe 
-//$mailer->addAddress("ingenieria@pcbdemexico.com.mx","M. en T. Rodolfo Morales Guerrero ");
-//$mailer->addAddress("ventas@pcbdemexico.com.mx", "ING. Rafael Tavera Paredes");
-//$mailer->addAddress("compras@pcbdemexico.com.mx", "ING.");
+$mailer->addAddress("ingenieria@pcbdemexico.com.mx","M. en T. Rodolfo Morales Guerrero ");
+$mailer->addAddress("ventas@pcbdemexico.com.mx", "ING. Rafael Tavera Paredes");
+$mailer->addAddress("compras@pcbdemexico.com.mx", "ING.Adriana Monserrat Tavera Velázquez");
 $mailer->Subject = 'Cotización de PCB desde pagina WEB';
 $mailer->addAttachment( $_FILES["Archivo_PCB"]['tmp_name'],  $_FILES["Archivo_PCB"]['name']);
 $mailer->CharSet="UTF-8";
 $mailer->msgHTML("$bodyE");
 $mailer->AltBody=strip_tags("$bodyE") ;
-//$respuesta=$mailer->send();
-//var_dump($mailer);
-$respuesta="true";
+$respuesta=$mailer->send();
 if($respuesta==true){
  header ('location: Gracias.html');
  exit();
 ob_end_clean();
 }else{
- header ('Location: index.html');
-    
+ header ('Location: index.html');  
  exit();
+ob_end_clean();
 }
 ?>
