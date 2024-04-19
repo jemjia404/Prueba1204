@@ -128,8 +128,8 @@ $mailer->msgHTML("$bodyE");
 $mailer->AltBody=strip_tags($bodyE);
 $respuesta=$mailer->send();
 if($respuesta===true){
-header ('location: Gracias.html');
-exit();exit();
+    header ('Location: Gracias.html');
+    exit();
 }else{
 header ('Location: index.html');
 exit();
